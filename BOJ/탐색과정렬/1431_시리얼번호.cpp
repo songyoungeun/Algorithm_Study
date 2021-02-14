@@ -6,28 +6,26 @@ int n;
 int sum(string c){
 	int sum = 0;
 	for(int i = 0; i < c.length(); i++){
-		if(c[i] - '0' <=9 && c[i] - '0' >=0) {
-			sum += c[i] - '0';
+		if(c[i] >= 48 && c[i] <= 57) {
+			sum += c[i] - 48;
 		}
 	}
-
 	return sum;
 }
-bool cmp(string a, string b){
+
+bool cmp(const string& a, const string& b){
 	int sum1,sum2 = 0;
-	if(a.length() < b.length()) return a.length() < b.length(); 
-	else if(a.length() == b.length()){
+	if(a.length() != b.length()) return a.length() < b.length(); 
+	else{
 		int sum1 = sum(a);
 		int sum2 = sum(b);
-		if(sum1 != sum2) sum1 < sum2;
+		if(sum1 != sum2) return sum1 < sum2;
 		else return a < b; 
 	}
-	
 }
 int main(){
 	ios::sync_with_stdio(0);
 	cin.tie(0);
-
 	cin >> n;
 	for(int i = 0; i < n; i++){
 		cin >> serial[i];	
