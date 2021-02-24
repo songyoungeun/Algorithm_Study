@@ -1,11 +1,10 @@
-# Algorithm Study:innocent:
-
-## :one:언어
+# Algorithm Study:computer:
+## :star:언어
 
 + Python
 + C++
 
-## :two:사이트
+## :star:사이트
 * BOJ
 * Programmers
 * CodeUp
