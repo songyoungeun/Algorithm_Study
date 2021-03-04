@@ -10,6 +10,7 @@ string solution(vector<int> numbers) {
     vector<string> num;
     for(auto a: numbers)num.push_back(to_string(a));
     sort(num.begin(),num.end(),cmp);
+    if(num[0] == "0") return "0";
     for(auto tmp : num){
         answer += tmp;
     }
