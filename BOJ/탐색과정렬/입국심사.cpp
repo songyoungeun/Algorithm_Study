@@ -5,6 +5,7 @@
 using namespace std;
 
 long long solution(int n, vector<int> times) {
+	sort(times.begin(), times.end());
     long long answer, man = 0;
     long long low = (long long)times[0];
 	long long high = (long long)times[times.size()-1] * n;
