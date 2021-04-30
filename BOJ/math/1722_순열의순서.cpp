@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-//#include <algorithm>
+
 using namespace std;
 
 int n;
@@ -10,13 +10,12 @@ bool chk[21];
 int main() {
 
 	cin >> n;
-	fact[1] = 1;
-	for (int i = 2; i < 21; i++)
+	fact[0] = 1;
+	for (int i = 1; i < 21; i++)
 	{
 		fact[i] = fact[i - 1] * i;
 	}
 	int num;
-	int cnt = 0;
 	cin >> num;
 	if (num == 1) {
 		long long k;
@@ -50,8 +49,9 @@ int main() {
 				if(!chk[j]){
 					ans += fact[n - i - 1];
 				}
-				chk[a[i]] = 1;
+				
 			}
+			chk[a[i]] = 1;
 		}
 		cout << ans +1 <<'\n';
 	}
