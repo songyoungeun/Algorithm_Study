@@ -1,14 +1,15 @@
 #include <iostream>
 #include <queue>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 int n, m ,k ,t;
 int dx[8] = {-2,-1,1,2,-2,-1,1,2};
 int dy[8] = {-1,-2,-2,-1,1,2,2,1};
-int room[300][300];
-bool chk[300][300][2];
+int room[333][333];
+bool chk[333][333][2];
 vector<pair<int,int>>clean;
 
 int main(){
@@ -20,33 +21,33 @@ int main(){
 	for(int i = 0; i < m; i++){
 		int x, y;
 		cin >> x >> y;
-		room[x-1][y-1] = 1
-		chk[x-1][y-1][0] = 1;
-		q.push({x-1,y-1});
+		room[x][y] = 1;
+		chk[x][y][0] = 1;
+		q.push({x,y});
 	}
 	for(int i = 0; i < k; i++){
 		int a, b;
 		cin >>a >> b;
-		clean[i] = {x-1, y-1};	
+		clean[i] = {a, b};	
 	}
 	int cnt = 0;
-    while (t--) {
+    while (t--) { 
         int s = q.size();
         while (s--) {
             int x = q.front().first;
             int y = q.front().second;
             q.pop();
-            check[x][y][cnt] = false;
+            chk[x][y][cnt] = false;
  
             for (int i = 0; i < 8; i++) {
                 int nx = x + dx[i];
                 int ny = y + dy[i];
-                if (0 <= nx && nx < n && 0 <= ny && ny < n) {
-                    if (!check[nx][ny][(cnt+1) % 2]) {
-                        check[nx][ny][(cnt+1) % 2] = true;
-                        q.push({ nx,ny });
-                    }
+                if(nx < 0 || nx >= n || ny < 0 || ny >= n) continue;
+                if (!chk[nx][ny][(cnt+1) % 2]) {
+                    chk[nx][ny][(cnt+1) % 2] = true;
+                    q.push({ nx,ny });
                 }
+                
             }
         }
         cnt++;
@@ -54,9 +55,9 @@ int main(){
     for (int i = 0; i < k; i++) {
         int x = clean[i].first;
         int y = clean[i].second;
-        if (check[x][y][cnt%2]) {
-            puts("YES"); return 0;
+        if (chk[x][y][cnt%2]) {
+        	cout << "YES"; return 0;
         }
     }
-    puts("NO");
+    cout << "NO";
 }
