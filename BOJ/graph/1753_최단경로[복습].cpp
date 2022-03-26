@@ -1,18 +1,18 @@
 #include<iostream>
-#include<priority_queue>
+#include<algorithm>
 #include<vector>
-#include<pair>
+#include <queue>
 
 using namespace std;
 
 #define X first
-#define Y sescond
+#define Y second
 
 int v,e,st;
 //{비용, 정점번호}
 vector<pair<int,int>> adj[20005];
 const int INF = 0x3f3f3f3f;
-ind d[20005]; // 최단 거리 테이블
+int d[20005]; // 최단 거리 테이블
  
 int main(){
 	ios::sync_with_stdio(0);
@@ -24,7 +24,7 @@ int main(){
 		cin >> u >> v >> w;
 		adj[u].push_back({w,v});
 	}
-	priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int,>> > pq;
+	priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>> > pq;
 	d[st] = 0;
 	//우선순위 큐에 (0,시작점)추가
 	pq.push({d[st],st});
@@ -41,7 +41,7 @@ int main(){
 		} 
 	} 
 	for(int i = 1; i <= v; i++){
-		if(d[i] == INF) cout << "INF'\n";
+		if(d[i] == INF) cout << "INF\n";
 		else cout << d[i] <<'\n';
 	}
 	
