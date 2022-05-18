@@ -11,7 +11,7 @@ void input(){
 void preprocess(){
 //	dy[i] := i를 1,2,3의 합으로 표현하는 방법  
 	dy[0] = 1;
-	for(int i = 0; i < 1000000; i++){
+	for(int i = 1; i <= 1000000; i++){
 		dy[i] = dy[i - 1]; // 마지막에 1을 더하는 경우의 수 
 		if(i - 2 >= 0) dy[i] += dy[i - 2]; //마지막에 2를 더하는 경우의 수  
 		dy[i] %= MOD;
