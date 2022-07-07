@@ -10,31 +10,30 @@ bool used[333][333], used2[333][333];
 void pro(){
 	for(int i = 0; i < n; i++){
 		int y = i, x = i, dir = 0;
-		vector<int> cur;
-		cur.push_back(arr[y][x]);
-		used[y][x] = true;
-		while(dir < 4){
-			int qy = y + dy[dir];
-			int qx = x + dx[dir];
-			if(0 > qy || qy >= n || 0 > qx || qx >= m || used[qy][qx]){
-				dir++;
-				continue;
-			}
-			y = qy, x = qx;
-			used[qy][qx] = true;
-			cur.push_back(arr[y][x]);
-		}
+        vector<int> cur;
+        cur.push_back(arr[y][x]);
+        used[y][x] = true;
+        while(dir < 4){
+            int qy = y + dy[dir];
+            int qx = x + dx[dir];
+            if(0 > qy || qy >= n || 0 > qx || qx >= m || used[qy][qx]){
+                dir++;
+                continue;
+            }
+            y = qy, x = qx;
+            used[y][x] = true;
+            cur.push_back(arr[y][x]);
+        }
 		int L = cur.size();
-		int idx = (L - r % L) % L;
-		cout << idx <<'\n';
-		y = i, x = i, dir = 0;
+        int idx = (L - r % L) % L;
+        y = i, x = i, dir = 0;
         used2[y][x] = true;
         arr[y][x] = cur[idx];
         if(++idx == (int)cur.size()) idx = 0;
         while(dir < 4){
             int qy = y + dy[dir];
             int qx = x + dx[dir];
-            if(0 > qy || qy >= n || 0 > qx || qx >= n || used2[qy][qx]){
+            if(0 > qy || qy >= n || 0 > qx || qx >= m || used2[qy][qx]){
                 dir++;
                 continue;
             }
