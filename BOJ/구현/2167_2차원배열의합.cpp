@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int arr[300][300];
+int arr[303][303];
 int n, m, k;
 
 void pro(){
