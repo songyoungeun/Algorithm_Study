@@ -2,7 +2,7 @@
 using namespace std;
 
 int n, m;
-string combi[105][105];
+string combi[101][101];
 
 string addNum(string a, string b){
 	//string으로 숫자 더하기 
@@ -15,7 +15,7 @@ string addNum(string a, string b){
 	else{
 		while(a.length() != b.length()){
 			a = '0' + a;
-			cout << "a: " << a;
+
 		}
 	}
 	int sum = 0;
@@ -42,7 +42,7 @@ void makeCombi(){
 	combi[1][0] = combi[1][1] = "1";
 	
 	for(int i = 2; i <= n; i++){
-		for(int j = 0; i <= m; j++){
+		for(int j = 0; j <= m; j++){
 			if(i == j || j == 0) combi[i][j] = "1";
 			else{
 				combi[i][j] = addNum(combi[i-1][j-1], combi[i-1][j]);
