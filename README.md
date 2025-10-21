@@ -25,6 +25,3 @@
 | **Programmers** | [https://programmers.co.kr](https://programmers.co.kr) |
 | **LeetCode** | [https://leetcode.com](https://leetcode.com) |
 
----
-
-## 📂 Repository Structure
